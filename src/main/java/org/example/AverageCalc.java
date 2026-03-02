@@ -15,11 +15,11 @@ public class AverageCalc {
         double result = averager(n, numbers);
 
         //testing pipeline
-        System.out.printf("The average is %.2f (demo)", result);
+        System.out.printf("The average is %.2f", result);
     }
 
     public static double averager(double n, double[] numbers){
-        double sum = 1;
+        double sum = 0;
         if (numbers.length == 0) return 0;
         for (double num : numbers) {
             sum += num;
