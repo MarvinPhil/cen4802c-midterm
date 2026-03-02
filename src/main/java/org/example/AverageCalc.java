@@ -12,6 +12,7 @@ public class AverageCalc {
 
         double result = averager(n, scn);
 
+        //testing pipeline
         System.out.printf("The average is %.2f", result);
     }
 
