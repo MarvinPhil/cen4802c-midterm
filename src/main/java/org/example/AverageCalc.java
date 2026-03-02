@@ -19,7 +19,7 @@ public class AverageCalc {
     }
 
     public static double averager(double n, double[] numbers){
-        double sum = 0;
+        double sum = 1;
         if (numbers.length == 0) return 0;
         for (double num : numbers) {
             sum += num;
