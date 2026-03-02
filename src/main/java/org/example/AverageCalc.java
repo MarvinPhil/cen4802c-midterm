@@ -15,7 +15,7 @@ public class AverageCalc {
         double result = averager(n, numbers);
 
         //testing pipeline
-        System.out.printf("The average is %.2f", result);
+        System.out.printf("The average is %.2f (demo)", result);
     }
 
     public static double averager(double n, double[] numbers){
