@@ -16,6 +16,8 @@ public class AverageCalc {
 
         //testing pipeline
         System.out.printf("The average is %.2f", result);
+
+        DatabaseManager.saveResult(result);
     }
 
     public static double averager(double n, double[] numbers){
