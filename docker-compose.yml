@@ -15,8 +15,10 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: mysql1234
       MYSQL_DATABASE: avgCalResults
+        - DB_HOST=db      # Inside Docker, the host is "db"
+        - DB_PORT=3306    # Inside Docker, the port is 3306
     ports:
-      - "3306:3306"
+      - "3307:3306"
     networks:
       - pipeline_network
     healthcheck:

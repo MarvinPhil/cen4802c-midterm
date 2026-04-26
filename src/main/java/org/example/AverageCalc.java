@@ -10,7 +10,7 @@ public class AverageCalc {
         //int n = scn.nextInt();
         //scn.nextLine();
         int n = 3;
-        double[] numbers = {10.0, 20.0, 30.0};
+        double[] numbers = {10.0, 20.0, 31.0};
 
         double result = averager(n, numbers);
 
