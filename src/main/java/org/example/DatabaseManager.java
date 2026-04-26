@@ -10,9 +10,11 @@ public class DatabaseManager {
     private static final String dbHost = System.getenv("DB_HOST") != null ? System.getenv("DB_HOST") : "localhost";
     // Logic: Look for "DB_PORT" environment variable. If not found, use "3307" (your host port)
     private static final String dbPort = System.getenv("DB_PORT") != null ? System.getenv("DB_PORT") : "3307";
+    private static final String dbName = "avgCalResults";
 
     //private static final String URL = "jdbc:mysql://localhost:3307/avgCalResults";
-    private static final String URL = "jdbc:mysql://" + dbHost + ":" + dbPort + "/avgCalResults?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false";
+    private static final String URL = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName + "?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true";
+    //private static final String URL = "jdbc:mysql://" + dbHost + ":" + dbPort + "/avgCalResults?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false";
     //private static final String URL = "jdbc:mysql://"+ dbHost +":"+ dbPort +"/avgCalResults?autoReconnect=true&useSSL=false";
     private static final String USER = "root";
     private static final String PASS = "mysql1234";
@@ -39,7 +41,7 @@ public class DatabaseManager {
                     System.out.println("DB not ready yet, retrying... (" + retries + " left)");
                     retries--;
                       System.err.println("Database Error: " + e.getMessage());
-                    try { Thread.sleep(5000); } catch (InterruptedException ie) {}
+                    try { Thread.sleep(10000); } catch (InterruptedException ie) {}
                 }
 
 
