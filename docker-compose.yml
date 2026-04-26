@@ -1,22 +1,21 @@
-version: '3.8'
 services:
-  # Java App
   app:
     build: .
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
     depends_on:
       db:
-        condition: service_healthy # Only starts App after DB is fully ready
+        condition: service_healthy
     networks:
       - pipeline_network
 
-  # MySQL Database
   db:
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: mysql1234
-      MYSQL_DATABASE: avgCalResults
-        - DB_HOST=db      # Inside Docker, the host is "db"
-        - DB_PORT=3306    # Inside Docker, the port is 3306
+      - MYSQL_DATABASE=avgCalResults
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_ROOT_HOST=%
     ports:
       - "3307:3306"
     networks:
@@ -25,7 +24,7 @@ services:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 10
 
 networks:
   pipeline_network:
