@@ -11,8 +11,9 @@ public class DatabaseManager {
     // Logic: Look for "DB_PORT" environment variable. If not found, use "3307" (your host port)
     private static final String dbPort = System.getenv("DB_PORT") != null ? System.getenv("DB_PORT") : "3307";
 
-    //private static final String URL = "jdbc:mysql://localhost:3306/avgCalResults"
-    private static final String URL = "jdbc:mysql://"+ dbHost +":"+ dbPort +"/avgCalResults?autoReconnect=true&useSSL=false";
+    //private static final String URL = "jdbc:mysql://localhost:3307/avgCalResults";
+    private static final String URL = "jdbc:mysql://" + dbHost + ":" + dbPort + "/avgCalResults?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false";
+    //private static final String URL = "jdbc:mysql://"+ dbHost +":"+ dbPort +"/avgCalResults?autoReconnect=true&useSSL=false";
     private static final String USER = "root";
     private static final String PASS = "mysql1234";
 
