@@ -14,14 +14,14 @@ services:
     image: mysql:8.0
     environment:
       - MYSQL_DATABASE=avgCalResults
-      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=mysql1234
       - MYSQL_ROOT_HOST=%
     ports:
       - "3307:3306"
     networks:
       - pipeline_network
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "root", "-pmysql1234"]
       interval: 10s
       timeout: 5s
       retries: 10
